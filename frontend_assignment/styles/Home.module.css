@@ -1,5 +1,7 @@
 .container {
     padding: 0 2rem;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 .main {
@@ -55,3 +57,46 @@
     line-height: 1.5;
     font-size: 1.5rem;
 }
+
+.formwrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+    gap: 5px;
+    align-items: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.item > label {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.item > input{
+    width: 70%;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+}
+
+.item > textarea{
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+

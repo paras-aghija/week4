@@ -6,6 +6,7 @@ import type { NextApiRequest, NextApiResponse } from "next"
 // The contract owner is the only account that can call the `greet` function,
 // However they will not be aware of the identity of the users generating the proofs.
 
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { greeting, nullifierHash, solidityProof } = JSON.parse(req.body)
 
@@ -16,7 +17,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         await contractOwner.greet(utils.formatBytes32String(greeting), nullifierHash, solidityProof)
-
+        let ress;
+        contractOwner.on('NewGreeting', (greeting:string) => {
+            ress = (utils.parseBytes32String(greeting))
+        })
         res.status(200).end()
     } catch (error: any) {
         const { message } = JSON.parse(error.body).error
